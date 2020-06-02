@@ -1,0 +1,25 @@
+version: "2"
+services:
+    order:
+        image: fit5046/pizza-order:latest
+        container_name: "order"
+        ports:
+          - "8070:8080"
+        networks:
+          backend:
+            aliases:
+              - order
+
+    cook:
+        image: fit5046/pizza-cook:latest
+        container_name: "cook"
+        ports:
+          - "8060:8080"
+        networks:
+          backend:
+            aliases:
+              - cook
+          
+    
+networks:
+  backend:
